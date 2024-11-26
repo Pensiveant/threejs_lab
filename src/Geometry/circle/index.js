@@ -28,3 +28,14 @@ function animation() {
   requestAnimationFrame(animation);
 }
 animation();
+
+var pointLight = new THREE.PointLight(0xffffff);
+//设置点光源位置，改变光源的位置
+pointLight.position.set(0, 0, 15);
+scene.add(pointLight);
+
+const sphereSize = 1;
+const pointLightHelper = new THREE.PointLightHelper( pointLight, sphereSize );
+scene.add( pointLightHelper );
+
+
