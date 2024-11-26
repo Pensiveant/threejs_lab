@@ -54,8 +54,10 @@ function animate() {
 }
 animate();
 
-// 添加环境光
-const light = new THREE.AmbientLight(0x404040); // 柔和的白光
-scene.add(light);
+// 从上方照射的白色平行光，强度为 1
+const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+directionalLight.position.set(0, 5, 0);
+scene.add(directionalLight);
 
-
+const helper = new THREE.DirectionalLightHelper( directionalLight, 5 );
+scene.add( helper );
