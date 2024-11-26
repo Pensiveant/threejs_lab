@@ -1,4 +1,5 @@
-import * as THREE from 'three';
+import * as THREE from "three";
+import { OrbitControls } from "three/addons/controls/OrbitControls.js";
 
 // 创建三个对象
 const scene = new THREE.Scene(); // 创建一个scene实例
@@ -21,11 +22,24 @@ const cube = new THREE.Mesh(geometry, material);
 scene.add(cube);
 camera.position.z = 5;
 
-// 渲染scene
-function animate() {
-  requestAnimationFrame(animate); // window.requestAnimationFrame(),类似于window.setInterval(),循环渲染
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
+// 创建轨道控制器
+const controls = new OrbitControls(camera, renderer.domElement);
+// 动态渲染
+function animation() {
+  controls.update();
   renderer.render(scene, camera);
+  requestAnimationFrame(animation);
 }
-animate();
+animation();
+
+
+// 6. 显示坐标轴(x轴: 红色; y轴: 绿色; z轴: 蓝色 rgb)
+// x轴水平方向(右正); y轴垂直方向(上正); z轴垂直xy平面即屏幕(外正)
+const axesHelper = new THREE.AxesHelper(5);
+scene.add(axesHelper);
+
+// 创建网格辅助工具
+const gridHelper = new THREE.GridHelper(20, 20, 0xffffff, 0xffffff);
+gridHelper.material.transparent = true; // 为了更方便观察, 设置opacity透明度
+gridHelper.material.opacity = 0.5;
+scene.add(gridHelper);
