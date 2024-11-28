@@ -12,6 +12,7 @@ const textureCube = loader.load( [
   'pz.png', 'nz.png',
 ] );
 scene.background=textureCube;
+scene.backgroundIntensity=.5;
 
 
 const camera = new THREE.PerspectiveCamera(
