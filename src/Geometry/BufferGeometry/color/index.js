@@ -25,10 +25,10 @@ geometry.setAttribute( 'position', new THREE.BufferAttribute( vertices, 3 ) );
 
 
 const color= new Float32Array( [
-	1, 0,  0, // 
-  0, 1,  0, // 
-  0, 0,  1,  // 
-  1, 1,  0,  // 
+	1, 0,  0, // 红
+  0, 1,  0, // 绿 
+  0, 0,  1,  // 蓝
+  1, 1,  0,  // 黄
 ] );
 geometry.setAttribute( 'color', new THREE.BufferAttribute( color, 3 ) );
 
