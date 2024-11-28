@@ -14,6 +14,11 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
+// 添加平行光
+const directionalLight = new THREE.DirectionalLight(0xffffff, 2);
+directionalLight.position.set(0, 15, 0);
+scene.add(directionalLight);
+
 //
 const loader = new GLTFLoader();
 loader.load(
