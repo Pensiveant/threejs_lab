@@ -56,7 +56,7 @@ animate();
 
 // 从上方照射的白色平行光，强度为 1
 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
-directionalLight.position.set(0, 5, 0);
+directionalLight.position.set(0, 100, 0);
 scene.add(directionalLight);
 
 const helper = new THREE.DirectionalLightHelper( directionalLight, 5 );
