@@ -15,7 +15,7 @@ document.body.appendChild(renderer.domElement);
 // 创建box
 const geometry = new THREE.BoxGeometry(5, 5, 5);
 const material = new THREE.MeshBasicMaterial({
-    color: 'rgb(220, 226, 241)',
+    color: 'rgb(100,123,205)',
 });
 const mesh = new THREE.Mesh(geometry, material);
 scene.add(mesh);
@@ -33,4 +33,10 @@ animation();
 
 const axesHelper = new THREE.AxesHelper(5);
 scene.add(axesHelper);
+
+// 创建网格辅助工具
+const gridHelper = new THREE.GridHelper(20, 20, 0xffffff, 0xffffff);
+gridHelper.material.transparent = true; // 为了更方便观察, 设置opacity透明度
+gridHelper.material.opacity = 0.5;
+scene.add(gridHelper);
 
