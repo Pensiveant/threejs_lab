@@ -34,12 +34,14 @@ const material1 = new LineMaterial({
   color: "rgb(100,123,205)",
   linewidth: 3,
   dashed: true,
+  dashSize: 0.5,
 });
 geometry1.setPositions(
   new Float32Array([0.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 5.0, 0.0])
 );
 
 const mesh2 = new Line2(geometry1, material1);
+mesh2.computeLineDistances(); // 要显示虚线，必须调用该方法
 scene.add(mesh2);
 mesh2.position.set(0, 0, 5);
 
