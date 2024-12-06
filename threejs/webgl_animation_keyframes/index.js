@@ -21,14 +21,14 @@ renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 container.appendChild(renderer.domElement);
 
-const pmremGenerator = new THREE.PMREMGenerator(renderer);
+const pmremGenerator = new THREE.PMREMGenerator(renderer); 
 
 const scene = new THREE.Scene();
 scene.background = new THREE.Color(0xbfe3dd); // 设置背景颜色
 scene.environment = pmremGenerator.fromScene(
   new RoomEnvironment(),
   0.04
-).texture;  // 为场景中的所有物理材质设置环境贴图。
+).texture;  // 为场景中的所有物理材质设置环境贴图：从立方体环境纹理生成PMREM（Prefiltered, Mipmapped Radiance Environment Map）环境贴图
 
 const camera = new THREE.PerspectiveCamera(
   40,
