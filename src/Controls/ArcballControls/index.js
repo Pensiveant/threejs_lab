@@ -48,9 +48,14 @@ mesh4.position.set(-5, 0, 0);
 
 // 创建弧球控制器
 const controls = new ArcballControls(camera, renderer.domElement, scene);
+
+controls.addEventListener("change", function () {
+  renderer.render(scene, camera);
+});
+
+controls.update();
 // 动态渲染
 function animation() {
-  controls.update();
   renderer.render(scene, camera);
   requestAnimationFrame(animation);
 }
